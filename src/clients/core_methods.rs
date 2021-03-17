@@ -74,7 +74,8 @@ pub trait SolrCoreMethods {
 
     /// Generate a new reqwest::Client using SolrClientConfig supplied by the caller
     fn build_client(&self) -> SolrResult<Client> {
-        let client_builder = ClientBuilder::new();
+        // let client_builder = ClientBuilder::new();
+        let client_builder = ClientBuilder::default().https_only(true).danger_accept_invalid_certs(true);
         let client = client_builder.configure(self.request_config()).build()?;
 
         Ok(client)

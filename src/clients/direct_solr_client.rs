@@ -140,7 +140,7 @@ mod test {
 impl SolrCoreMethods for DirectSolrClient {
     fn live_node_url(&self) -> SolrResult<String> {
         Ok(format!(
-            "http://{}:{}{}",
+            "https://{}:{}{}",
             self.host, self.port, self.context
         ))
     }
